@@ -56,9 +56,6 @@ public class RobotContainer {
     // reset the field-centric heading on left bumper press
     pilot.leftBumper().onTrue(drivetrain.runOnce(() -> drivetrain.seedFieldRelative()));
 
-    // if (Utils.isSimulation()) {
-    //   drivetrain.seedFieldRelative(new Pose2d(new Translation2d(), Rotation2d.fromDegrees(90)));
-    // }
     drivetrain.registerTelemetry(logger::telemeterize);
 
     pilot.pov(0).whileTrue(drivetrain.applyRequest(() -> forwardStraight.withVelocityX(RobotMap.DrivetrainConstants.CRAWL_SPEED).withVelocityY(0)));
