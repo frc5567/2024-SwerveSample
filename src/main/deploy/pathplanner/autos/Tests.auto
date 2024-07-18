@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 4.061722123444247,
-      "y": 5.038789506150441
+      "x": 4.011212106774936,
+      "y": 5.949622198911435
     },
     "rotation": 0
   },
@@ -14,11 +14,18 @@
         {
           "type": "path",
           "data": {
+            "pathName": "GOAT"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
             "pathName": "SimplePath"
           }
         }
       ]
     }
   },
-  "folder": null
+  "folder": null,
+  "choreoAuto": false
 }
