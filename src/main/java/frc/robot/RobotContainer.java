@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.TeleopDriveCommand;
 import frc.robot.constants.RobotMap;
 import frc.robot.constants.TunerConstants;
+import frc.robot.helpers.Telemetry;
 
 public class RobotContainer {
   /* Setting up bindings for necessary control of the swerve drive platform */
