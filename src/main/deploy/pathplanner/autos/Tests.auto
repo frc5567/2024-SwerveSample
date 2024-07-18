@@ -14,13 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "GOAT"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "SimplePath"
+            "pathName": "testpath"
           }
         }
       ]
