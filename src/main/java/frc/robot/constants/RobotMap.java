@@ -60,11 +60,11 @@ public class RobotMap {
 
         // Theoretical free speed (m/s) at 12v applied output;
         // This needs to be tuned to your individual robot
-        public static final double SPEED_AT_12V_MPS = 5.0;
+        public static final double SPEED_AT_12V_MPS = 7.0;
 
         public static final double MAX_SPEED = SPEED_AT_12V_MPS; // kSpeedAt12VoltsMps desired top speed
-        public static final double CRAWL_SPEED = 1.0;
-        public static final double MAX_ANGULAR_RATE = 1.5 * Math.PI; // 3/4 of a rotation per second max angular velocity
+        public static final double CRAWL_SPEED = 3.0;
+        public static final double MAX_ANGULAR_RATE = 2.0 * Math.PI; // 3/4 of a rotation per second max angular velocity
 
         public static final double DRIVE_DEADBAND = 0.1;
         public static final double ROTATE_DEADBAND = 0.1; 
