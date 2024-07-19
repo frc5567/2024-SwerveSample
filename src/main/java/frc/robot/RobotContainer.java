@@ -11,6 +11,8 @@ import com.ctre.phoenix6.mechanisms.swerve.SwerveModule.DriveRequestType;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.TeleopDriveCommand;
@@ -20,18 +22,22 @@ import frc.robot.helpers.Telemetry;
 
 public class RobotContainer {
   /* Setting up bindings for necessary control of the swerve drive platform */
-   private final CommandXboxController pilot = new CommandXboxController(RobotMap.PilotControllerConstants.XBOX_CONTROLLER_USB_PORT);
+  private final CommandXboxController pilot = new CommandXboxController(RobotMap.PilotControllerConstants.XBOX_CONTROLLER_USB_PORT);
   
   public final frc.robot.subsystems.CommandSwerveDrivetrain drivetrain = TunerConstants.DriveTrain; // My drivetrain
+
+  /* Path follower */
+  private final Command testAuto = drivetrain.getAutoPath("Tests");
+  private final Command score3 =  drivetrain.getAutoPath("score3");
+
+  // A chooser for autonomous commands
+  SendableChooser<Command> m_autonChooser = new SendableChooser<>();
 
   private final SwerveRequest.SwerveDriveBrake brake = new SwerveRequest.SwerveDriveBrake();
 
   private final SwerveRequest.RobotCentric forwardStraight = new SwerveRequest.RobotCentric().withDriveRequestType(DriveRequestType.OpenLoopVoltage);
 
   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
-
-  /* Path follower */
-  private Command runAuto = drivetrain.getAutoPath("Tests");
 
   private final Telemetry logger = new Telemetry(RobotMap.DrivetrainConstants.MAX_SPEED);
 
@@ -65,11 +71,18 @@ public class RobotContainer {
   }
 
   public RobotContainer() {
+    // Add commands to the autonomous command chooser
+    m_autonChooser.setDefaultOption("Simple Auto", testAuto);
+    m_autonChooser.addOption("Score3 Auto", score3);
+    
+    // Put the chooser on the dashboard
+    SmartDashboard.putData(m_autonChooser);
+
     configureBindings();
   }
 
   public Command getAutonomousCommand() {
     /* First put the drivetrain into auto run mode, then run the auto */
-    return runAuto;
+    return m_autonChooser.getSelected();
   }
 }
