@@ -1,6 +1,9 @@
 # 2024-SwerveSample
 First go at a swerve drive. 
 
+Current build status:
+[![CI](https://github.com/frc5567/2024-SwerveSample/actions/workflows/main.yml/badge.svg)](https://github.com/frc5567/2024-SwerveSample/actions/workflows/main.yml)
+
 Some notes:
 - Code is based on CTRE Sample for Command-Based Swerve Drive. We've modified to make the Teleop Command and demonstrate how the Bindings work more clearly with Commands and Subsystems
 - All motor and sensor CAN IDs have been set and moved to the RobotMap format. Keeping the TunerConstants.java file for now.
